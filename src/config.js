@@ -1,0 +1,1 @@
+export const PRODUCT_IMAGE_FILE_SIZE = 3145728;

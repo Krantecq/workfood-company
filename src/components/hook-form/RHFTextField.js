@@ -1,0 +1,31 @@
+import { TextField } from "@mui/material";
+import PropTypes from "prop-types";
+// form
+import { Controller, useFormContext } from "react-hook-form";
+// @mui
+
+// ----------------------------------------------------------------------
+
+RHFTextField.propTypes = {
+  name: PropTypes.string,
+};
+
+export default function RHFTextField({ name, fullWidth = false, ...other }) {
+  const { control } = useFormContext();
+
+  return (
+    <Controller
+      name={name}
+      control={control}
+      render={({ field, fieldState: { error } }) => (
+        <TextField
+          {...field}
+          fullWidth={fullWidth}
+          error={!!error}
+          helperText={error?.message}
+          {...other}
+        />
+      )}
+    />
+  );
+}
